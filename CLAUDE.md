@@ -1,0 +1,32 @@
+# CLAUDE.md - ziftr-claude-plugin
+
+Home of the public Ziftr Claude Code plugin (`ziftr-ai`) and its marketplace
+manifest.
+
+## Rules
+
+- main-direct branching: feature branches merge straight to `main`.
+  `claude plugin marketplace add` pulls from main, so main must always be
+  installable.
+- The MCP server is NOT in this repo. `ziftr-ai/.mcp.json` points at the
+  hosted Ziftr MCP server (`https://mcp-dev.ziftr.ai/mcp`) as a remote
+  `type: http` server; Claude Code does the OAuth dance on first use. There
+  is no local process and no npm dependency.
+- The skills/agents reference the hosted server's tool surface (knowledge:
+  `search_docs`, `get_sdk_method`, `get_type_definition`,
+  `get_setup_checklist`, `introspect_api`; live: `use_sdk`). When that
+  surface changes, update the skills/agents here in the same release window.
+  There are no `login` / `select_tenant` tools -- auth and tenant context
+  come from the OAuth connection. Scaffolding is a local skill
+  (`/ziftr-ai:scaffold`), not an MCP tool.
+- Bump versions in BOTH `.claude-plugin/marketplace.json` (plugins[0].version)
+  and `ziftr-ai/.claude-plugin/plugin.json` together ON EVERY CONTENT CHANGE.
+  If the version is unchanged, `claude plugin marketplace update` +
+  `claude plugin update` keep serving the cached old content SILENTLY (no
+  error) -- installs will not see new skills/agents/.mcp.json. Verify after
+  release: `ls ~/.claude/plugins/cache/ziftr/ziftr-ai/<version>`.
+- This plugin is client-facing: no internal tooling references and no
+  internal URLs (ziftr.ai domains only) in any tracked file.
+- The GitHub repository is a read-only distribution mirror; changes land in
+  the canonical repository and sync automatically. External pull requests
+  cannot be merged -- direct contributors to support@ziftr.ai.
