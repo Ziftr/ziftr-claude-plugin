@@ -30,9 +30,34 @@ Requirements:
 
 ## Status
 
-Ziftr is in early access. The plugin currently connects to the preview
-environment (`mcp-dev.ziftr.ai`); the production endpoint will replace it at
-general availability via a plugin update.
+The plugin connects to the production hosted MCP gateway at
+`https://mcp.ziftr.ai/mcp`.
+
+## Internal / preview gateway
+
+Public installs always use production. The preview gateway at
+`https://mcp-dev.ziftr.ai/mcp` remains available for internal engineering.
+
+To point Claude Code at the preview host instead of production, add an HTTP
+MCP server in your project or user Claude Code settings (this overrides or
+supplements the plugin pointer depending on how you name the server):
+
+```json
+{
+  "mcpServers": {
+    "ziftr-dev": {
+      "type": "http",
+      "url": "https://mcp-dev.ziftr.ai/mcp"
+    }
+  }
+}
+```
+
+Use a distinct server name such as `ziftr-dev` if you still need the production
+`ziftr` server from the plugin. Alternatively, clone this marketplace locally,
+set `ziftr-ai/.mcp.json` to the preview URL, and `claude plugin marketplace add`
+the local path for a private install. There is no separate public marketplace
+entry for the preview host.
 
 ## Docs and support
 

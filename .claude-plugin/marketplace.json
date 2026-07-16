@@ -14,7 +14,7 @@
       "source": "./ziftr-ai",
       "category": "developer-tools",
       "description": "AI-powered assistant for building Ziftr e-commerce stores. Connects to the hosted Ziftr MCP server (docs, SDK lookup, live store operations via use_sdk), plus guided skills and agents for setup, scaffolding, products, SDK integration, and launch.",
-      "version": "0.2.2",
+      "version": "0.2.3",
       "author": {
         "name": "Ziftr"
       },

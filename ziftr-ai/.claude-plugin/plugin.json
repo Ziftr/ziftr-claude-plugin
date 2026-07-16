@@ -2,7 +2,7 @@
   "$schema": "https://claude.ai/schemas/plugin.json",
   "name": "ziftr-ai",
   "description": "AI-powered assistant for building Ziftr e-commerce stores. Search docs, configure stores, manage products, and deploy storefronts.",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": {
     "name": "Ziftr",
     "email": "support@ziftr.ai"

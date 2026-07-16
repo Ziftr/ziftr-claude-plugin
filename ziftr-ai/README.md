@@ -3,7 +3,7 @@
 Claude Code plugin for building e-commerce stores on the Ziftr platform.
 
 On install this plugin connects Claude Code to the hosted Ziftr MCP server
-(`https://mcp-dev.ziftr.ai/mcp`, a remote Streamable-HTTP server). The first
+(`https://mcp.ziftr.ai/mcp`, a remote Streamable-HTTP server). The first
 time a tool is used, Claude Code runs the OAuth flow in your browser (run
 `/mcp` if it does not prompt automatically); tokens are stored and refreshed
 automatically. Knowledge tools work without authentication.
