@@ -9,7 +9,7 @@ manifest.
   `claude plugin marketplace add` pulls from main, so main must always be
   installable.
 - The MCP server is NOT in this repo. `ziftr-ai/.mcp.json` points at the
-  hosted Ziftr MCP server (`https://mcp-dev.ziftr.ai/mcp`) as a remote
+  hosted Ziftr MCP server (`https://mcp.ziftr.ai/mcp`) as a remote
   `type: http` server; Claude Code does the OAuth dance on first use. There
   is no local process and no npm dependency.
 - The skills/agents reference the hosted server's tool surface (knowledge:
