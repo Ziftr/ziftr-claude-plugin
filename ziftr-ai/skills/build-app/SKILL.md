@@ -16,9 +16,12 @@ endpoints or MCP tools that are not on the live gateway surface.
   fall back to https://docs.ziftr.ai.
 - Use `introspect_api` / `get_sdk_method` / `get_type_definition` when looking
   up Core API or SDK contracts related to permissions the app will request.
-- There is no dedicated "create app" MCP tool. Walk the user through the
-  public `/v1/apps` API family and admin developer console; produce a
-  manifest draft and install plan in the workspace.
+- There is no dedicated "create app" MCP write tool. Produce a **manifest
+  draft and install plan in the workspace only**. Before stating exact HTTP
+  routes or surface kind enums as hard contracts, verify with
+  `search_knowledge` or `introspect_api` (or docs.ziftr.ai). Treat the
+  `/v1/apps` family below as design guidance aligned with the app platform
+  docs -- not a substitute for live docs if they differ.
 
 ## Distribution tiers
 
@@ -69,9 +72,10 @@ are invalid. Cover:
 - `events`, `schedules`, `operations`
 - `extensions`, `discovery`, `destinations`, `health`, `compatibility`
 
-Supported surface kinds include: `remote-service`,
-`trusted-connector-worker`, `hosted-functions`, `certified-temporal-worker`,
-`admin-iframe`, `storefront-package`, `privileged-storefront-script`.
+Surface kinds commonly discussed in platform docs include `remote-service`,
+`trusted-connector-worker`, `hosted-functions`, admin iframe / storefront
+package surfaces, and certified partner workers. Confirm the live allowed
+set with `search_knowledge` before locking a design to a specific kind.
 
 Capability maturity: experimental | preview | generally-available |
 deprecated. Do not mark GA without conformance.
@@ -104,14 +108,12 @@ Rules to enforce in guidance:
 - Failed activation must not leave orphaned active keys, roles, schedules,
   or subscriptions.
 
-Public install API family (contract reference, not MCP tools):
-
-- `POST/GET/PATCH /v1/apps/install-sessions...`
-- credential / verify / discover / preview / activate sub-routes
-- installation suspend / resume / uninstall / upgrade / rollback
-
-Catalog / developer API family under `/v1/apps` and `/v1/apps/:appId/versions`
-(create, validate, publish, revoke). Mutating calls accept `Idempotency-Key`.
+Public install/catalog API family (design guidance -- verify before coding
+clients): install sessions with credential / verify / discover / preview /
+activate steps; installation suspend / resume / uninstall / upgrade /
+rollback; app and version create / validate / publish / revoke under
+`/v1/apps`. Mutating calls typically accept `Idempotency-Key`. Prefer
+`search_knowledge` for the current OpenAPI shapes.
 
 ## App principal and identity
 
