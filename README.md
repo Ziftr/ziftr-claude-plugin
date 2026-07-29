@@ -1,14 +1,19 @@
 # Ziftr Claude Code Plugin
 
 Official Ziftr plugin marketplace for Claude Code. The `ziftr-ai` plugin gives
-Claude everything it needs to build and operate a Ziftr e-commerce store:
+Claude everything it needs to build and operate a Ziftr e-commerce store **and**
+to design apps and connectors on the Ziftr app platform:
 
-- The hosted Ziftr MCP server (connected automatically over HTTPS): docs
-  search, SDK method lookup, API introspection, and live store operations
-  (`use_sdk`)
-- Guided skills: `/ziftr-ai:setup`, `/ziftr-ai:scaffold`, `/ziftr-ai:products`,
-  `/ziftr-ai:integrate-sdk`, `/ziftr-ai:launch-checklist`, `/ziftr-ai:search`
-- Agents: `ziftr-integration-reviewer`, `ziftr-launch-auditor`
+- The hosted Ziftr MCP server (connected automatically over HTTPS):
+  `whoami`, knowledge search (`search_knowledge`), SDK method lookup, API
+  introspection, and live store operations (`use_sdk` when enabled)
+- Storefront skills: `/ziftr-ai:setup`, `/ziftr-ai:scaffold`,
+  `/ziftr-ai:products`, `/ziftr-ai:integrate-sdk`,
+  `/ziftr-ai:launch-checklist`, `/ziftr-ai:search`
+- App developer skills: `/ziftr-ai:build-app`, `/ziftr-ai:connector-dev`,
+  `/ziftr-ai:webhooks-events`
+- Agents: `ziftr-integration-reviewer`, `ziftr-launch-auditor`,
+  `app-integration-reviewer`
 
 ## Install
 
@@ -19,7 +24,8 @@ claude plugin install ziftr-ai@ziftr
 
 The first time a Ziftr tool is used, Claude Code opens the browser for OAuth
 (run `/mcp` if it does not prompt). Tokens are stored and refreshed
-automatically. Knowledge tools work without authentication.
+automatically. Knowledge tools work without authentication when the deployment
+enables them.
 
 Requirements:
 
@@ -63,6 +69,7 @@ entry for the preview host.
 
 - Documentation: https://docs.ziftr.ai
 - Support: support@ziftr.ai
+- Internal dogfood script (contributors): [docs/dogfood-test.md](docs/dogfood-test.md)
 
 ## What's in this repo
 
@@ -71,8 +78,9 @@ entry for the preview host.
 ziftr-ai/                         -- the plugin
   .claude-plugin/plugin.json      -- plugin manifest
   .mcp.json                       -- remote pointer to the hosted MCP server
-  skills/                         -- 6 guided skills
-  agents/                         -- 2 building/review agents
+  skills/                         -- guided skills (storefront + app developer)
+  agents/                         -- review and audit agents
+docs/                             -- contributor dogfood checklist
 ```
 
 There is no local runtime to install -- `ziftr-ai/.mcp.json` connects to the

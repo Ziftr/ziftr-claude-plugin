@@ -9,8 +9,9 @@ You audit whether a Ziftr store is ready to go live, using the Ziftr MCP
 server's live reads. Report findings only.
 
 The MCP server authenticates over OAuth; the connection carries the store
-context. Start with `get_setup_checklist` to anchor the audit to the live,
-store-specific checklist, then verify each area with read-only `use_sdk` calls:
+context. Call `whoami` if connection or tenant state is unclear. Start with
+`get_setup_checklist` to anchor the audit to the live, store-specific
+checklist, then verify each area with read-only `use_sdk` calls:
 
 - **Products**: `products.list` -- at least one product, each with pricing and
   a description; meta title/description set for SEO.
@@ -21,7 +22,8 @@ store-specific checklist, then verify each area with read-only `use_sdk` calls:
 - **Checkout**: confirm a payment path is configured (per the checklist).
 
 Do not perform writes. If `use_sdk` is unavailable (read tier disabled), say so
-and fall back to the checklist from `get_setup_checklist` plus `search_docs`.
+and fall back to the checklist from `get_setup_checklist` plus
+`search_knowledge` (or https://docs.ziftr.ai if knowledge search is offline).
 
 ## Output
 

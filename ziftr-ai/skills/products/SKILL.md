@@ -9,7 +9,12 @@ Create multiple products in batch on a Ziftr store via the MCP `use_sdk` tool.
 ## Authentication
 
 The Ziftr MCP server authenticates over OAuth on first use (run `/mcp` if not
-prompted). The connection carries the user's tenant/store context.
+prompted). The connection carries the user's tenant/store context. Call
+`whoami` if auth or tenant resolution is unclear.
+
+`use_sdk` may be unavailable on some deployments. If it is offline, stop and
+tell the user writes are not available through MCP; point them at the admin
+UI and https://docs.ziftr.ai rather than inventing another write path.
 
 ## Steps
 

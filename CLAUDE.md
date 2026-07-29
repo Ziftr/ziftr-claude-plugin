@@ -1,7 +1,7 @@
 # CLAUDE.md - ziftr-claude-plugin
 
 Home of the public Ziftr Claude Code plugin (`ziftr-ai`) and its marketplace
-manifest.
+manifest. Covers two tracks: merchant/storefront and app/connector developer.
 
 ## Rules
 
@@ -12,9 +12,11 @@ manifest.
   hosted Ziftr MCP server (`https://mcp.ziftr.ai/mcp`) as a remote
   `type: http` server; Claude Code does the OAuth dance on first use. There
   is no local process and no npm dependency.
-- The skills/agents reference the hosted server's tool surface (knowledge:
-  `search_docs`, `get_sdk_method`, `get_type_definition`,
-  `get_setup_checklist`, `introspect_api`; live: `use_sdk`). When that
+- The skills/agents reference the hosted server's tool surface:
+  `whoami`, `search_knowledge`, `get_sdk_method`, `get_type_definition`,
+  `get_setup_checklist`, `introspect_api`, and flag-gated `use_sdk`.
+  `search_knowledge` and `use_sdk` may be disabled on a given deployment --
+  skills must degrade gracefully (docs.ziftr.ai / admin UI). When the
   surface changes, update the skills/agents here in the same release window.
   There are no `login` / `select_tenant` tools -- auth and tenant context
   come from the OAuth connection. Scaffolding is a local skill

@@ -6,20 +6,20 @@
     "email": "support@ziftr.ai"
   },
   "metadata": {
-    "description": "Official Ziftr plugins for Claude Code - build e-commerce stores with AI assistance"
+    "description": "Official Ziftr plugins for Claude Code - build e-commerce stores and apps with AI assistance"
   },
   "plugins": [
     {
       "name": "ziftr-ai",
       "source": "./ziftr-ai",
       "category": "developer-tools",
-      "description": "AI-powered assistant for building Ziftr e-commerce stores. Connects to the hosted Ziftr MCP server (docs, SDK lookup, live store operations via use_sdk), plus guided skills and agents for setup, scaffolding, products, SDK integration, and launch.",
-      "version": "0.2.3",
+      "description": "AI-powered assistant for Ziftr e-commerce stores and apps. Connects to the hosted Ziftr MCP server (docs, SDK lookup, live store operations via use_sdk), plus guided skills and agents for setup, scaffolding, products, SDK integration, launch, and app/connector development.",
+      "version": "0.3.0",
       "author": {
         "name": "Ziftr"
       },
       "homepage": "https://ziftr.ai",
-      "keywords": ["ecommerce", "headless", "sdk", "store", "products"]
+      "keywords": ["ecommerce", "headless", "sdk", "store", "products", "apps", "connectors"]
     }
   ]
 }
