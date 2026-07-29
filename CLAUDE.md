@@ -1,7 +1,7 @@
 # CLAUDE.md - ziftr-claude-plugin
 
 Home of the public Ziftr Claude Code plugin (`ziftr-ai`) and its marketplace
-manifest.
+manifest. Covers two tracks: merchant/storefront and app/connector developer.
 
 ## Rules
 

@@ -1,8 +1,8 @@
 {
   "$schema": "https://claude.ai/schemas/plugin.json",
   "name": "ziftr-ai",
-  "description": "AI-powered assistant for building Ziftr e-commerce stores. Search docs, configure stores, manage products, and deploy storefronts.",
-  "version": "0.2.3",
+  "description": "AI-powered assistant for Ziftr e-commerce stores and apps. Search docs, configure stores, manage products, scaffold storefronts, and design apps/connectors.",
+  "version": "0.3.0",
   "author": {
     "name": "Ziftr",
     "email": "support@ziftr.ai"
@@ -10,5 +10,5 @@
   "homepage": "https://ziftr.ai",
   "repository": "https://github.com/Ziftr/ziftr-claude-plugin",
   "license": "MIT",
-  "keywords": ["ecommerce", "headless", "sdk", "store", "products", "commerce", "api"]
+  "keywords": ["ecommerce", "headless", "sdk", "store", "products", "commerce", "api", "apps", "connectors"]
 }
