@@ -10,10 +10,13 @@ automatically. Knowledge tools work without authentication.
 
 ## MCP tools
 
-- Knowledge (no auth): `search_docs`, `get_sdk_method`, `get_type_definition`,
-  `get_setup_checklist`, `introspect_api`
-- Live store operations: `use_sdk` (runs any SDK method; reads are open, writes
-  prompt for confirmation, destructive operations are blocked)
+- Always-on identity: `whoami` (connection, scopes, tenant resolution)
+- Knowledge: `search_knowledge`, `get_sdk_method`, `get_type_definition`,
+  `get_setup_checklist`, `introspect_api` (`search_knowledge` may be
+  deploy-flag-gated; fall back to https://docs.ziftr.ai)
+- Live store operations: `use_sdk` when enabled (runs any SDK method; reads are
+  open, writes prompt for confirmation, destructive operations are blocked).
+  On knowledge-only deployments `use_sdk` is unavailable.
 
 ## Skills
 

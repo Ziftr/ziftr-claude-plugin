@@ -72,8 +72,9 @@ Required values (the rest can stay default for local dev):
 - `ZIFTR_API_KEY` - a server-only API key. Create it in the admin under
   Settings > API Keys with the "Storefront (Default)" role.
 
-Use `search_docs` (MCP) to find the current dev API URL and the API-key guide
-if the user is unsure.
+Use `search_knowledge` (MCP) to find the current API URL and the API-key guide
+if the user is unsure. If `search_knowledge` is unavailable, use
+https://docs.ziftr.ai.
 
 ### 5. Verify
 

@@ -3,9 +3,9 @@
 Official Ziftr plugin marketplace for Claude Code. The `ziftr-ai` plugin gives
 Claude everything it needs to build and operate a Ziftr e-commerce store:
 
-- The hosted Ziftr MCP server (connected automatically over HTTPS): docs
-  search, SDK method lookup, API introspection, and live store operations
-  (`use_sdk`)
+- The hosted Ziftr MCP server (connected automatically over HTTPS):
+  `whoami`, knowledge search (`search_knowledge`), SDK method lookup, API
+  introspection, and live store operations (`use_sdk` when enabled)
 - Guided skills: `/ziftr-ai:setup`, `/ziftr-ai:scaffold`, `/ziftr-ai:products`,
   `/ziftr-ai:integrate-sdk`, `/ziftr-ai:launch-checklist`, `/ziftr-ai:search`
 - Agents: `ziftr-integration-reviewer`, `ziftr-launch-auditor`

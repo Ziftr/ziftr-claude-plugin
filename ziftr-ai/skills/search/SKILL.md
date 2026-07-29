@@ -9,9 +9,11 @@ Search the Ziftr documentation and SDK reference for: "$ARGUMENTS"
 
 ## Process
 
-1. **Search Documentation**
-   - Use the `search_docs` MCP tool with the user's query
-   - Review the results for relevance
+1. **Search knowledge**
+   - Use the `search_knowledge` MCP tool with the user's query
+   - Results are citation-carrying search blocks from hybrid retrieval
+   - If `search_knowledge` is unavailable on this deployment, fall back to
+     https://docs.ziftr.ai and tell the user the knowledge tool is offline
 
 2. **Present Results**
    - Show the most relevant documentation pages
@@ -29,10 +31,12 @@ Search the Ziftr documentation and SDK reference for: "$ARGUMENTS"
 
 ## Available Search Tools
 
-- `search_docs` - Search all documentation, SDK reference, and API docs
+- `search_knowledge` - Search documentation, SDK reference, and API docs
+  (may be disabled on knowledge-only deploys; fall back to docs.ziftr.ai)
 - `get_sdk_method` - Get detailed info for a specific SDK method (e.g., "products.create")
 - `get_type_definition` - Get TypeScript type definition (e.g., "Product", "CreateProductDto")
 - `introspect_api` - Explore API endpoints for a domain (e.g., "products", "orders")
+- `whoami` - Confirm auth, scopes, and tenant resolution when results look empty
 
 ## Common Topics
 
@@ -41,4 +45,5 @@ Search the Ziftr documentation and SDK reference for: "$ARGUMENTS"
 - Checkout: cart and checkout flow
 - Shipping: zones, rates, carriers
 - Taxes: tax rates and calculation
+- Apps and connectors: manifests, install sessions, ERP sync
 - Deployment: Vercel, Netlify, Cloudflare guides
