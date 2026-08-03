@@ -8,6 +8,16 @@ arguments: path
 Add the Ziftr SDK to an existing Next.js project. For a new project, use
 `/ziftr-ai:scaffold` instead.
 
+## MCP tenant context (when looking up methods live)
+
+If you use MCP tools (`get_sdk_method`, `get_type_definition`, or `use_sdk`)
+during integration, call `whoami` first. Multiple memberships with no default
+fail closed -- ask the user which tenant to use, then set `ZIFTR_TENANT`
+(UUID or slug) and optional `ZIFTR_STORE` (UUID only) in the project's
+`.claude/settings.json` `env` block, or pass `tenant` / `store` on each
+`use_sdk` call. Precedence: tool arg > header > default membership.
+These MCP env vars are separate from the storefront `ZIFTR_API_KEY` below.
+
 ## Arguments
 
 - `path` (optional): path to the Next.js project. Defaults to current directory.
