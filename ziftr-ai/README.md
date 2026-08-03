@@ -25,6 +25,10 @@ deployment enables them.
   `X-Ziftr-Tenant` / `X-Ziftr-Store` request headers. Or pass `tenant` /
   `store` on each `use_sdk` call. Precedence: tool arg > header > default
   membership. Call `whoami` first when membership is ambiguous.
+- Optional endpoint override: set `ZIFTR_MCP_URL` the same way to point the
+  plugin at a specific gateway (default `https://mcp.ziftr.ai/mcp`; dev
+  gateway `https://mcp-dev.ziftr.ai/mcp`). Useful for pinning a project to
+  the dev environment regardless of where the production hostname points.
 
 ## Skills
 
