@@ -36,7 +36,9 @@ Search the Ziftr documentation and SDK reference for: "$ARGUMENTS"
 - `get_sdk_method` - Get detailed info for a specific SDK method (e.g., "products.create")
 - `get_type_definition` - Get TypeScript type definition (e.g., "Product", "CreateProductDto")
 - `introspect_api` - Explore API endpoints for a domain (e.g., "products", "orders")
-- `whoami` - Confirm auth, scopes, and tenant resolution when results look empty
+- `whoami` - Confirm auth, scopes, and memberships when results look empty.
+  Multiple memberships with no default fail closed; set `ZIFTR_TENANT` /
+  `ZIFTR_STORE` in `.claude/settings.json` `env` if needed
 
 ## Common Topics
 

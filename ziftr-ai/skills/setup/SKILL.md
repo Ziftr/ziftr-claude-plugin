@@ -11,11 +11,19 @@ through the setup using the Ziftr MCP tools.
 
 The Ziftr MCP server is a hosted, OAuth-protected service. On first use Claude
 Code will prompt the user to authenticate in the browser (run `/mcp` if it does
-not prompt automatically). The connection determines the user's tenant/store
-context -- there is no separate login step inside the tools.
+not prompt automatically). There is no separate login step inside the tools.
 
-Start with `whoami` if the user is unsure whether they are connected or which
-tenant is resolved.
+Call `whoami` first to confirm connection, scopes, and memberships. If
+`whoami` lists multiple memberships and there is no clear default, ask the
+user which tenant to work in before any `use_sdk` call. Multi-membership
+with no default fails closed with a candidate list (it does not silently
+pick the System tenant).
+
+Set a project default with `ZIFTR_TENANT` (UUID or slug) and optional
+`ZIFTR_STORE` (UUID only) in the project's `.claude/settings.json` `env`
+block -- Claude Code does not auto-read `.env`. Or pass `tenant` / `store`
+on each `use_sdk` call. Precedence: tool arg > header > default membership.
+Empty header values are treated as unset.
 
 ## Tools you will use
 

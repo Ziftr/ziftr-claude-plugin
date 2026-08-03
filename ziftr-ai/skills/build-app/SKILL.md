@@ -10,8 +10,13 @@ endpoints or MCP tools that are not on the live gateway surface.
 
 ## Authentication and tools
 
-- OAuth on first use (run `/mcp` if not prompted). Call `whoami` to confirm
-  connection, scopes, and tenant.
+- OAuth on first use (run `/mcp` if not prompted). Call `whoami` first to
+  confirm connection, scopes, and memberships. If multiple memberships and no
+  clear default, ask the user which tenant to use before any `use_sdk` call.
+  Multi-membership with no default fails closed with a candidate list.
+  Set `ZIFTR_TENANT` (UUID or slug) and optional `ZIFTR_STORE` (UUID only) in
+  the project's `.claude/settings.json` `env` block, or pass `tenant` /
+  `store` per call. Precedence: tool arg > header > default membership.
 - Use `search_knowledge` for docs and current guidance. If it is unavailable,
   fall back to https://docs.ziftr.ai.
 - Use `introspect_api` / `get_sdk_method` / `get_type_definition` when looking

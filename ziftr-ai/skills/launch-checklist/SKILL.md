@@ -11,8 +11,19 @@ through the checklist using the MCP `use_sdk` tool for live reads and
 ## Authentication
 
 The MCP server authenticates over OAuth on first use (run `/mcp` if not
-prompted); the connection carries the tenant/store context. Call `whoami` if
-auth or tenant resolution is unclear.
+prompted).
+
+Call `whoami` first to confirm connection, scopes, and memberships. If
+`whoami` lists multiple memberships and there is no clear default, ask the
+user which tenant to work in before any `use_sdk` call. Multi-membership
+with no default fails closed with a candidate list (it does not silently
+pick the System tenant).
+
+Set a project default with `ZIFTR_TENANT` (UUID or slug) and optional
+`ZIFTR_STORE` (UUID only) in the project's `.claude/settings.json` `env`
+block -- Claude Code does not auto-read `.env`. Or pass `tenant` / `store`
+on each `use_sdk` call. Precedence: tool arg > header > default membership.
+Empty header values are treated as unset.
 
 ## Process
 

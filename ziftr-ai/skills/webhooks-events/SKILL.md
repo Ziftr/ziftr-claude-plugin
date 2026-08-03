@@ -9,7 +9,10 @@ subscriptions, webhook intake, trigger taxonomy, and suspend behavior.
 
 ## Tools
 
-- `whoami` if auth/tenant is unclear
+- `whoami` first if auth/tenant is unclear. Multiple memberships with no
+  default fail closed -- ask the user, then set `ZIFTR_TENANT` (UUID or slug)
+  / optional `ZIFTR_STORE` (UUID only) in `.claude/settings.json` `env`, or
+  pass `tenant` / `store` on each `use_sdk` call
 - `search_knowledge` for current event catalogs and webhook docs (fall back to
   https://docs.ziftr.ai if offline)
 - `introspect_api` when exploring domain APIs related to subscribed resources

@@ -11,13 +11,20 @@ deployment enables them.
 
 ## MCP tools
 
-- Always-on identity: `whoami` (connection, scopes, tenant resolution)
+- Always-on identity: `whoami` (connection, scopes, memberships / tenant
+  resolution)
 - Knowledge: `search_knowledge`, `get_sdk_method`, `get_type_definition`,
   `get_setup_checklist`, `introspect_api` (`search_knowledge` may be
   deploy-flag-gated; fall back to https://docs.ziftr.ai)
 - Live store operations: `use_sdk` when enabled (runs any SDK method; reads are
   open, writes prompt for confirmation, destructive operations are blocked).
   On knowledge-only deployments `use_sdk` is unavailable.
+- Optional project defaults: set `ZIFTR_TENANT` (UUID or slug) and
+  `ZIFTR_STORE` (UUID only) in the project's `.claude/settings.json` `env`
+  block (Claude Code does not auto-read `.env`). These map to
+  `X-Ziftr-Tenant` / `X-Ziftr-Store` request headers. Or pass `tenant` /
+  `store` on each `use_sdk` call. Precedence: tool arg > header > default
+  membership. Call `whoami` first when membership is ambiguous.
 
 ## Skills
 

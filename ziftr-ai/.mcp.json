@@ -2,7 +2,11 @@
   "mcpServers": {
     "ziftr": {
       "type": "http",
-      "url": "https://mcp.ziftr.ai/mcp"
+      "url": "https://mcp.ziftr.ai/mcp",
+      "headers": {
+        "X-Ziftr-Tenant": "${ZIFTR_TENANT:-}",
+        "X-Ziftr-Store": "${ZIFTR_STORE:-}"
+      }
     }
   }
 }

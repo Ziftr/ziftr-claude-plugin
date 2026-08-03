@@ -8,9 +8,15 @@ description: Audits a Ziftr store's readiness to go live (products, pricing, shi
 You audit whether a Ziftr store is ready to go live, using the Ziftr MCP
 server's live reads. Report findings only.
 
-The MCP server authenticates over OAuth; the connection carries the store
-context. Call `whoami` if connection or tenant state is unclear. Start with
-`get_setup_checklist` to anchor the audit to the live, store-specific
+The MCP server authenticates over OAuth. Call `whoami` first to confirm
+connection, scopes, and memberships. If multiple memberships and no clear
+default, ask the user which tenant to use before any `use_sdk` call.
+Multi-membership with no default fails closed with a candidate list. Set
+`ZIFTR_TENANT` (UUID or slug) and optional `ZIFTR_STORE` (UUID only) in the
+project's `.claude/settings.json` `env` block, or pass `tenant` / `store` per
+call. Precedence: tool arg > header > default membership.
+
+Start with `get_setup_checklist` to anchor the audit to the live, store-specific
 checklist, then verify each area with read-only `use_sdk` calls:
 
 - **Products**: `products.list` -- at least one product, each with pricing and
