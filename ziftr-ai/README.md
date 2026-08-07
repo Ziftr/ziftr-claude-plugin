@@ -25,16 +25,23 @@ deployment enables them.
   `X-Ziftr-Tenant` / `X-Ziftr-Store` request headers. Or pass `tenant` /
   `store` on each `use_sdk` call. Precedence: tool arg > header > default
   membership. Call `whoami` first when membership is ambiguous.
+  **Leave `X-Ziftr-Store` / `ZIFTR_STORE` unset** if you want mid-session
+  `set_scope` store pins (or `/ziftr-ai:set-scope`) to apply; a store header
+  wins over the pin.
 - Optional endpoint override: set `ZIFTR_MCP_URL` the same way to point the
   plugin at a specific gateway (default `https://mcp.ziftr.ai/mcp`; dev
   gateway `https://mcp-dev.ziftr.ai/mcp`). Useful for pinning a project to
   the dev environment regardless of where the production hostname points.
+- Working scope: `set_scope` tool pins tenant + store for subsequent
+  `use_sdk` calls. Prefer `/ziftr-ai:set-scope` for an interactive org then
+  store pick.
 
 ## Skills
 
 ### Storefront track
 
 - `/ziftr-ai:setup` - set up a new store step by step
+- `/ziftr-ai:set-scope` - interactively pick organization then store (or all stores)
 - `/ziftr-ai:scaffold` - scaffold a storefront from the starter template
 - `/ziftr-ai:products` - bulk-create products
 - `/ziftr-ai:integrate-sdk` - add @ziftr.ai/sdk to an existing project
