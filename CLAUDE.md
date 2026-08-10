@@ -14,13 +14,13 @@ manifest. Covers two tracks: merchant/storefront and app/connector developer.
   is no local process and no npm dependency.
 - The skills/agents reference the hosted server's tool surface:
   `whoami`, `search_knowledge`, `get_sdk_method`, `get_type_definition`,
-  `get_setup_checklist`, `introspect_api`, and flag-gated `use_sdk`.
-  `search_knowledge` and `use_sdk` may be disabled on a given deployment --
-  skills must degrade gracefully (docs.ziftr.ai / admin UI). When the
-  surface changes, update the skills/agents here in the same release window.
-  There are no `login` / `select_tenant` tools -- auth and tenant context
-  come from the OAuth connection. Scaffolding is a local skill
-  (`/ziftr-ai:scaffold`), not an MCP tool.
+  `get_setup_checklist`, `introspect_api`, `set_scope`, and flag-gated
+  `use_sdk`. `search_knowledge` and `use_sdk` may be disabled on a given
+  deployment -- skills must degrade gracefully (docs.ziftr.ai / admin UI).
+  When the surface changes, update the skills/agents here in the same
+  release window. There are no `login` / `select_tenant` tools -- auth and
+  tenant context come from the OAuth connection. Scaffolding is a local
+  skill (`/ziftr-ai:scaffold`), not an MCP tool.
 - Bump versions in BOTH `.claude-plugin/marketplace.json` (plugins[0].version)
   and `ziftr-ai/.claude-plugin/plugin.json` together ON EVERY CONTENT CHANGE.
   If the version is unchanged, `claude plugin marketplace update` +
