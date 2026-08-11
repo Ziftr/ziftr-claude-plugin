@@ -11,14 +11,20 @@ deployment enables them.
 
 ## MCP tools
 
-- Always-on identity: `whoami` (connection, scopes, memberships / tenant
-  resolution)
-- Knowledge: `search_knowledge`, `get_sdk_method`, `get_type_definition`,
-  `get_setup_checklist`, `introspect_api` (`search_knowledge` may be
-  deploy-flag-gated; fall back to https://docs.ziftr.ai)
+- Always-on identity: `whoami` (connection, **environment**, **docs host**,
+  scopes, memberships / tenant resolution). Call this first when you need to
+  know whether you are on dev, staging, or prod.
+- Working scope: `set_scope` pins tenant + store for subsequent `use_sdk`
+  calls. Prefer `/ziftr-ai:set-scope` for an interactive org then store pick.
+- Knowledge: `search_knowledge` (canonical), `search_docs` (deprecated alias),
+  `get_sdk_method`, `get_type_definition`, `get_setup_checklist`,
+  `introspect_api`. `search_knowledge` may be deploy-flag-gated; when offline,
+  fall back to the **Docs host from `whoami`** (dev -> docs-dev, staging ->
+  docs-staging, prod -> docs) -- never assume production docs from a
+  dev-connected session.
 - Live store operations: `use_sdk` when enabled (runs any SDK method; reads are
-  open, writes prompt for confirmation, destructive operations are blocked).
-  On knowledge-only deployments `use_sdk` is unavailable.
+  open, writes prompt for confirmation). Confirm-gated bulk catalog deletes
+  use `catalog_bulk_delete`. On knowledge-only deployments both are unavailable.
 - Optional project defaults: set `ZIFTR_TENANT` (UUID or slug) and
   `ZIFTR_STORE` (UUID only) in the project's `.claude/settings.json` `env`
   block (Claude Code does not auto-read `.env`). These map to
@@ -32,9 +38,6 @@ deployment enables them.
   plugin at a specific gateway (default `https://mcp.ziftr.ai/mcp`; dev
   gateway `https://mcp-dev.ziftr.ai/mcp`). Useful for pinning a project to
   the dev environment regardless of where the production hostname points.
-- Working scope: `set_scope` tool pins tenant + store for subsequent
-  `use_sdk` calls. Prefer `/ziftr-ai:set-scope` for an interactive org then
-  store pick.
 
 ## Skills
 
