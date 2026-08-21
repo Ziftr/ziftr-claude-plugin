@@ -1,4 +1,5 @@
 ---
+name: connector-dev
 description: Guide building a Ziftr connector -- activity-only workers, ERP sync write surface, conflicts (NetSuite example)
 ---
 

@@ -1,6 +1,8 @@
 ---
+name: search
 description: Search Ziftr documentation, SDK reference, and API docs
-arguments: query
+metadata:
+  arguments: "query"
 ---
 
 # Ziftr Documentation Search

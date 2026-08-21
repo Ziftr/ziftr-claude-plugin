@@ -1,4 +1,5 @@
 ---
+name: build-app
 description: Guide building a Ziftr app -- manifest, distribution tiers, install lifecycle, and app principal
 ---
 

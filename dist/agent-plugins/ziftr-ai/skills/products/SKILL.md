@@ -1,4 +1,5 @@
 ---
+name: products
 description: Bulk product creation workflow
 ---
 

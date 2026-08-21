@@ -1,4 +1,5 @@
 ---
+name: webhooks-events
 description: Guide event subscriptions, webhook intake (HMAC), trigger types, and suspension semantics
 ---
 

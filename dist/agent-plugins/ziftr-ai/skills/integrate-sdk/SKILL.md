@@ -1,6 +1,8 @@
 ---
+name: integrate-sdk
 description: Guide for adding @ziftr.ai/sdk to an existing Next.js project
-arguments: path
+metadata:
+  arguments: "path"
 ---
 
 # Integrate Ziftr SDK

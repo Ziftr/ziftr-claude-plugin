@@ -1,10 +1,12 @@
 ---
+name: set-scope
 description: >
   Interactively set working scope (organization + store) for use_sdk via
   set_scope. Use when the user asks to pick a tenant/store, switch stores
   mid-session, or pin scope by friendly name (for example by running
   /set-scope or /ziftr-ai:set-scope in clients with slash commands).
-arguments: org store
+metadata:
+  arguments: "org store"
 ---
 
 # Set working scope (interactive)

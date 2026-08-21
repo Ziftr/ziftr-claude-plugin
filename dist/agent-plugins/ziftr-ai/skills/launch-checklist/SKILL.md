@@ -1,4 +1,5 @@
 ---
+name: launch-checklist
 description: Validate store readiness before going live - checks products, shipping, taxes, and configuration
 ---
 

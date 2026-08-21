@@ -1,4 +1,5 @@
 ---
+name: setup
 description: Guide through setting up a new Ziftr e-commerce store step by step
 ---
 

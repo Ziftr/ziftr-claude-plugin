@@ -1,4 +1,4 @@
-# ziftr-ai dogfood test (0.3.0)
+# ziftr-ai dogfood test (0.4.0)
 
 Internal readiness script for the Claude plugin. Run against a clean Claude
 Code profile when possible. Record every failure or gap and open a follow-up
@@ -18,7 +18,7 @@ claude plugin marketplace add Ziftr/ziftr-claude-plugin
 claude plugin install ziftr-ai@ziftr
 ```
 
-3. Confirm cache serves **0.3.0** and that both
+3. Confirm cache serves **0.4.0** and that both
    `ziftr-ai/.claude-plugin/plugin.json` and
    `.claude-plugin/marketplace.json` report the same version.
 4. Trigger OAuth (any tool or `/mcp`).

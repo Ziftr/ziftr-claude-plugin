@@ -1,6 +1,8 @@
 ---
+name: scaffold
 description: Scaffold a new Ziftr storefront from the official starter template
-arguments: path
+metadata:
+  arguments: "path"
 ---
 
 # Scaffold a Ziftr Storefront
