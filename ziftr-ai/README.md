@@ -52,19 +52,19 @@ their own skill invocation (or the agent picks them up from the request).
 
 ### Storefront track
 
-- `setup` - set up a new store step by step
-- `set-scope` - interactively pick organization then store (or all stores)
-- `scaffold` - scaffold a storefront from the starter template
-- `products` - bulk-create products
-- `integrate-sdk` - add @ziftr.ai/sdk to an existing project
-- `launch-checklist` - validate launch readiness
-- `search` - search Ziftr docs and SDK reference
+- `setup` (`/ziftr-ai:setup`) - set up a new store step by step
+- `set-scope` (`/ziftr-ai:set-scope`) - interactively pick organization then store (or all stores)
+- `scaffold` (`/ziftr-ai:scaffold`) - scaffold a storefront from the starter template
+- `products` (`/ziftr-ai:products`) - bulk-create products
+- `integrate-sdk` (`/ziftr-ai:integrate-sdk`) - add @ziftr.ai/sdk to an existing project
+- `launch-checklist` (`/ziftr-ai:launch-checklist`) - validate launch readiness
+- `search` (`/ziftr-ai:search`) - search Ziftr docs and SDK reference
 
 ### App developer track
 
-- `build-app` - app manifest, distribution tiers, install lifecycle
-- `connector-dev` - activity-only connectors and ERP sync contracts
-- `webhooks-events` - event subscriptions, webhooks, triggers
+- `build-app` (`/ziftr-ai:build-app`) - app manifest, distribution tiers, install lifecycle
+- `connector-dev` (`/ziftr-ai:connector-dev`) - activity-only connectors and ERP sync contracts
+- `webhooks-events` (`/ziftr-ai:webhooks-events`) - event subscriptions, webhooks, triggers
 
 ## Agents
 

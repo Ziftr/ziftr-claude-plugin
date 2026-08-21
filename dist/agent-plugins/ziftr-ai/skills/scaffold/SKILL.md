@@ -85,5 +85,4 @@ npm run dev    # starts on http://localhost:3010
 npx tsc --noEmit
 ```
 
-Confirm the homepage renders. Then point the user at the `setup` skill to
-configure store data, or the `products` skill to add products.
+Confirm the homepage renders. Then point the user at the `setup` skill to configure store data, or the `products` skill to add products.

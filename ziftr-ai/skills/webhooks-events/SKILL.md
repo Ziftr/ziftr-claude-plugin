@@ -67,7 +67,7 @@ Inbound provider webhooks:
 - Should acknowledge quickly; long provider work belongs in async operations /
   workflows, not the HTTP request thread.
 - Feed **normalized** platform events; connector workers stay activity-only
-  (see the `connector-dev` skill).
+  (see the `connector-dev` skill, `/ziftr-ai:connector-dev`).
 
 Outbound Ziftr-to-merchant webhooks (when the product surface exposes them)
 should likewise use HMAC (or signed request) verification on the receiver and
@@ -106,8 +106,8 @@ audit/sync history for the retention period.
    supported.
 4. Document suspend vs uninstall behavior for operators.
 5. Cross-link connector activities that consume webhook-normalized events
-   (the `connector-dev` skill) and app install activation
-   (the `build-app` skill).
+   (the `connector-dev` skill, `/ziftr-ai:connector-dev`) and app install
+   activation (the `build-app` skill, `/ziftr-ai:build-app`).
 
 ## Deliverable
 

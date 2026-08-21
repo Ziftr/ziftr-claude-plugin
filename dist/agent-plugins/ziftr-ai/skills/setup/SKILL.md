@@ -61,5 +61,6 @@ Start by calling `get_setup_checklist` to anchor the steps to the live store.
 
 ### 5. Storefront + next steps
 - Recommend scaffolding a storefront with the `scaffold` skill
-- Use the `launch-checklist` skill to verify readiness before going live
+- Use the `launch-checklist` skill to verify
+  readiness before going live
 - Use `search_knowledge` (or docs.ziftr.ai) for deployment guides

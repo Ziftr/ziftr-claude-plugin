@@ -87,6 +87,14 @@ function parseSkill(path) {
 const renderSkill = (entries, body) =>
   ["---", ...entries.flatMap((e) => e.lines), "---", body].join("\n");
 
+// Source skills reference each other as "the `<name>` skill (`/ziftr-ai:<name>`)"
+// (or ", `/ziftr-ai:<name>`" inside parentheses). The slash form is Claude Code
+// UX; strip it for packagings whose clients have no /plugin:skill syntax.
+const stripSlashRefs = (body) =>
+  body
+    .replace(/, `\/ziftr-ai:[a-z-]+`/g, "")
+    .replace(/\s*\(`\/ziftr-ai:[a-z-]+`\)/g, "");
+
 // Conforms frontmatter to the Agent Skills spec for the Agent Plugins output.
 function toAgentSkillsFrontmatter(entries, skillName, path) {
   const out = [];
@@ -157,7 +165,7 @@ for (const skill of skillDirs) {
   const { entries, body } = parseSkill(path);
   write(
     join(AP, "skills", skill, "SKILL.md"),
-    renderSkill(toAgentSkillsFrontmatter(entries, skill, path), body),
+    renderSkill(toAgentSkillsFrontmatter(entries, skill, path), stripSlashRefs(body)),
   );
 }
 
@@ -171,7 +179,10 @@ writeJson(join(GROK, ".mcp.json"), {
 for (const skill of skillDirs) {
   const path = join(SRC, "skills", skill, "SKILL.md");
   const { entries, body } = parseSkill(path);
-  write(join(GROK, "skills", skill, "SKILL.md"), renderSkill(entries, body));
+  write(
+    join(GROK, "skills", skill, "SKILL.md"),
+    renderSkill(entries, stripSlashRefs(body)),
+  );
 }
 for (const agent of agentFiles) {
   write(join(GROK, "agents", agent), readFileSync(join(SRC, "agents", agent), "utf8"));

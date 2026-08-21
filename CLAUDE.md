@@ -16,9 +16,11 @@ merchant/storefront and app/connector developer.
   to skills, agents, manifests, or the MCP pointer, run
   `node scripts/build-packagings.mjs` and commit the regenerated outputs;
   CI (`packagings` job) fails on stale outputs.
-- Skill content must stay client-agnostic: no bare "Claude Code" assumptions,
-  no `/ziftr-ai:<name>` slash cross-references (refer to "the `<name>` skill");
-  Claude Code specifics only as parentheticals. Agent Plugins skill
+- Skill content must stay client-agnostic: no bare "Claude Code" assumptions;
+  Claude Code specifics only as parentheticals. Skill cross-references are
+  written "the `<name>` skill (`/ziftr-ai:<name>`)" (or ", `/ziftr-ai:<name>`"
+  when already inside parentheses) -- the Claude Code packaging keeps the
+  slash form and the generator strips it for Agent Plugins / Grok. Agent Plugins skill
   frontmatter allows only name/description/license/compatibility/metadata/
   allowed-tools -- the generator folds extra keys into `metadata`, and skills
   violating the Agent Skills spec are silently skipped by those clients.

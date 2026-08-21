@@ -6,7 +6,7 @@ arguments: path
 # Integrate Ziftr SDK
 
 Add the Ziftr SDK to an existing Next.js project. For a new project, use
-the `scaffold` skill instead.
+the `scaffold` skill (`/ziftr-ai:scaffold`) instead.
 
 ## MCP tenant context (when looking up methods live)
 

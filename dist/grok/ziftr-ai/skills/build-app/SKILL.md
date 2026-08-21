@@ -89,8 +89,8 @@ Capability maturity: experimental | preview | generally-available |
 deprecated. Do not mark GA without conformance.
 
 For connector-specific rules (activity-only workers, ERP write surface),
-hand off to the `connector-dev` skill. For events, webhooks, and triggers,
-hand off to the `webhooks-events` skill.
+hand off to the `connector-dev` skill. For
+events, webhooks, and triggers, hand off to the `webhooks-events` skill.
 
 ## Resumable install lifecycle
 
@@ -152,7 +152,8 @@ Produce, in the user's workspace:
 1. A draft manifest JSON (or outline) for their app
 2. The install session step plan and required merchant grants
 3. Permission list with least-privilege rationale
-4. Next skill: `connector-dev` if they are building ERP sync, or
-   `webhooks-events` for event intake
+4. Next skill: `connector-dev` if they are
+   building ERP sync, or `webhooks-events`
+   for event intake
 
 Run `app-integration-reviewer` before they treat the design as ready.

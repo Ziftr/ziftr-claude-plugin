@@ -50,7 +50,7 @@ Start by calling `get_setup_checklist` to anchor the steps to the live store.
 - Create initial products via `use_sdk` (`products.create`) when available
 - Explain product types (physical, digital), SKUs, pricing (minor units),
   descriptions
-- For bulk entry, hand off to the `products` skill
+- For bulk entry, hand off to the `products` skill (`/ziftr-ai:products`)
 
 ### 3. Shipping (physical products)
 - Explain shipping zones, then create them via `use_sdk` when available
@@ -60,5 +60,7 @@ Start by calling `get_setup_checklist` to anchor the steps to the live store.
 
 ### 5. Storefront + next steps
 - Recommend scaffolding a storefront with the `scaffold` skill
-- Use the `launch-checklist` skill to verify readiness before going live
+  (`/ziftr-ai:scaffold`)
+- Use the `launch-checklist` skill (`/ziftr-ai:launch-checklist`) to verify
+  readiness before going live
 - Use `search_knowledge` (or docs.ziftr.ai) for deployment guides

@@ -45,8 +45,8 @@ values are treated as unset.
    - For each failure, explain what is missing and offer to fix it.
 
 4. **Fix gaps**
-   - No products -> the `products` skill or `use_sdk products.create`
-     (pricing in minor units, e.g. $19.99 = 1999)
+   - No products -> the `products` skill or
+     `use_sdk products.create` (pricing in minor units, e.g. $19.99 = 1999)
    - No shipping -> guide zone setup, create via `use_sdk` when available
    - No taxes -> explain options, create rates via `use_sdk` when available
 

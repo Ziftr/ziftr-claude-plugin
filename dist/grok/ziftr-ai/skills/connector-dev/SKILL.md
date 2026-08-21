@@ -23,8 +23,9 @@ via MCP; do not invent endpoints.
 - No MCP write path for connector deploy. Produce a **connector spec**
   (manifest grants, queue name, activity list, sync contracts) in the workspace.
 
-Prerequisite concepts: the `build-app` skill for manifests and install
-lifecycle. Events/webhooks: the `webhooks-events` skill.
+Prerequisite concepts: the `build-app` skill for
+manifests and install lifecycle. Events/webhooks: the `webhooks-events`
+skill.
 
 ## Non-negotiable architecture
 

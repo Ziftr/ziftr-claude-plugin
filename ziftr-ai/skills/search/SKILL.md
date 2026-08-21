@@ -57,3 +57,4 @@ Search the Ziftr documentation and SDK reference for: "$ARGUMENTS"
   `ZIFTR_STORE` as environment variables for the MCP connection if needed
   (in Claude Code: the project's `.claude/settings.json` `env` block; `.env`
   files are not auto-read), or run the `set-scope` skill
+  (`/ziftr-ai:set-scope`)

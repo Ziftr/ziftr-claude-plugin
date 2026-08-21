@@ -106,8 +106,8 @@ audit/sync history for the retention period.
    supported.
 4. Document suspend vs uninstall behavior for operators.
 5. Cross-link connector activities that consume webhook-normalized events
-   (the `connector-dev` skill) and app install activation
-   (the `build-app` skill).
+   (the `connector-dev` skill) and app install
+   activation (the `build-app` skill).
 
 ## Deliverable
 
