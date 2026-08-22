@@ -1,0 +1,11 @@
+stages:
+  - verify
+
+# Regenerates the Agent Plugins 1.0 and Grok packagings from ziftr-ai/ and
+# fails if the committed dist/ or .grok-plugin/ outputs are stale, so a skill
+# edit cannot merge without shipping to every client packaging.
+packagings:
+  stage: verify
+  image: node:22
+  script:
+    - node scripts/build-packagings.mjs --check

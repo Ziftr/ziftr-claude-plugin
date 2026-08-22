@@ -11,8 +11,10 @@ subscriptions, webhook intake, trigger taxonomy, and suspend behavior.
 
 - `whoami` first if auth/tenant is unclear. Multiple memberships with no
   default fail closed -- ask the user, then set `ZIFTR_TENANT` (UUID or slug)
-  / optional `ZIFTR_STORE` (UUID only) in `.claude/settings.json` `env`, or
-  pass `tenant` / `store` on each `use_sdk` call
+  / optional `ZIFTR_STORE` (UUID only) as environment variables for the MCP
+  connection (in Claude Code: the project's `.claude/settings.json` `env`
+  block; `.env` files are not auto-read), or pass `tenant` / `store` on each
+  `use_sdk` call
 - `search_knowledge` for current event catalogs and webhook docs (fall back to
   https://docs.ziftr.ai if offline)
 - `introspect_api` when exploring domain APIs related to subscribed resources
@@ -65,7 +67,7 @@ Inbound provider webhooks:
 - Should acknowledge quickly; long provider work belongs in async operations /
   workflows, not the HTTP request thread.
 - Feed **normalized** platform events; connector workers stay activity-only
-  (see `/ziftr-ai:connector-dev`).
+  (see the `connector-dev` skill, `/ziftr-ai:connector-dev`).
 
 Outbound Ziftr-to-merchant webhooks (when the product surface exposes them)
 should likewise use HMAC (or signed request) verification on the receiver and
@@ -104,8 +106,8 @@ audit/sync history for the retention period.
    supported.
 4. Document suspend vs uninstall behavior for operators.
 5. Cross-link connector activities that consume webhook-normalized events
-   (`/ziftr-ai:connector-dev`) and app install activation
-   (`/ziftr-ai:build-app`).
+   (the `connector-dev` skill, `/ziftr-ai:connector-dev`) and app install
+   activation (the `build-app` skill, `/ziftr-ai:build-app`).
 
 ## Deliverable
 

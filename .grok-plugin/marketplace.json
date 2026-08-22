@@ -1,0 +1,31 @@
+{
+  "name": "ziftr",
+  "description": "Official Ziftr plugins for Grok - build e-commerce stores and apps with AI assistance",
+  "owner": {
+    "name": "Ziftr",
+    "email": "support@ziftr.ai"
+  },
+  "plugins": [
+    {
+      "name": "ziftr-ai",
+      "description": "AI-powered assistant for Ziftr e-commerce stores and apps. Connects to the hosted Ziftr MCP server (docs, SDK lookup, live store operations via use_sdk), plus guided skills and agents for setup, scaffolding, products, SDK integration, launch, and app/connector development.",
+      "category": "developer-tools",
+      "homepage": "https://ziftr.ai",
+      "keywords": [
+        "ecommerce",
+        "headless",
+        "sdk",
+        "store",
+        "products",
+        "commerce",
+        "api",
+        "apps",
+        "connectors"
+      ],
+      "source": {
+        "type": "local",
+        "path": "./dist/grok/ziftr-ai"
+      }
+    }
+  ]
+}

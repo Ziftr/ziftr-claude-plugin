@@ -12,8 +12,10 @@ via MCP; do not invent endpoints.
 
 - `whoami` first if auth/tenant is unclear. Multiple memberships with no
   default fail closed -- ask the user, then set `ZIFTR_TENANT` (UUID or slug)
-  / optional `ZIFTR_STORE` (UUID only) in `.claude/settings.json` `env`, or
-  pass `tenant` / `store` on each `use_sdk` call
+  / optional `ZIFTR_STORE` (UUID only) as environment variables for the MCP
+  connection (in Claude Code: the project's `.claude/settings.json` `env`
+  block; `.env` files are not auto-read), or pass `tenant` / `store` on each
+  `use_sdk` call
 - `search_knowledge` for app platform and ERP sync docs (fall back to
   https://docs.ziftr.ai if offline)
 - `introspect_api`, `get_sdk_method`, `get_type_definition` for Core API / SDK
@@ -21,8 +23,9 @@ via MCP; do not invent endpoints.
 - No MCP write path for connector deploy. Produce a **connector spec**
   (manifest grants, queue name, activity list, sync contracts) in the workspace.
 
-Prerequisite concepts: `/ziftr-ai:build-app` for manifests and install
-lifecycle. Events/webhooks: `/ziftr-ai:webhooks-events`.
+Prerequisite concepts: the `build-app` skill (`/ziftr-ai:build-app`) for
+manifests and install lifecycle. Events/webhooks: the `webhooks-events`
+skill (`/ziftr-ai:webhooks-events`).
 
 ## Non-negotiable architecture
 

@@ -83,5 +83,6 @@ npm run dev    # starts on http://localhost:3010
 npx tsc --noEmit
 ```
 
-Confirm the homepage renders. Then point the user at `/ziftr-ai:setup` to
-configure store data, or `/ziftr-ai:products` to add products.
+Confirm the homepage renders. Then point the user at the `setup` skill
+(`/ziftr-ai:setup`) to configure store data, or the `products` skill
+(`/ziftr-ai:products`) to add products.

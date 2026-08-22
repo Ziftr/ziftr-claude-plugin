@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ziftr": {
+      "type": "http",
+      "url": "https://mcp.ziftr.ai/mcp"
+    }
+  }
+}

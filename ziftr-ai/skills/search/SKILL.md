@@ -54,5 +54,7 @@ Search the Ziftr documentation and SDK reference for: "$ARGUMENTS"
 - `introspect_api` - Explore API endpoints for a domain (e.g., "products", "orders")
 - `whoami` - Confirm auth, environment, docs host, scopes, and memberships.
   Multiple memberships with no default fail closed; set `ZIFTR_TENANT` /
-  `ZIFTR_STORE` in `.claude/settings.json` `env` if needed, or run
-  `/ziftr-ai:set-scope`
+  `ZIFTR_STORE` as environment variables for the MCP connection if needed
+  (in Claude Code: the project's `.claude/settings.json` `env` block; `.env`
+  files are not auto-read), or run the `set-scope` skill
+  (`/ziftr-ai:set-scope`)

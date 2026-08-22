@@ -9,9 +9,10 @@ through the setup using the Ziftr MCP tools.
 
 ## Authentication
 
-The Ziftr MCP server is a hosted, OAuth-protected service. On first use Claude
-Code will prompt the user to authenticate in the browser (run `/mcp` if it does
-not prompt automatically). There is no separate login step inside the tools.
+The Ziftr MCP server is a hosted, OAuth-protected service. On first use the
+agent client will prompt the user to authenticate in the browser (in Claude
+Code, run `/mcp` if it does not prompt automatically). There is no separate
+login step inside the tools.
 
 Call `whoami` first to confirm connection, scopes, and memberships. If
 `whoami` lists multiple memberships and there is no clear default, ask the
@@ -20,10 +21,11 @@ with no default fails closed with a candidate list (it does not silently
 pick the System tenant).
 
 Set a project default with `ZIFTR_TENANT` (UUID or slug) and optional
-`ZIFTR_STORE` (UUID only) in the project's `.claude/settings.json` `env`
-block -- Claude Code does not auto-read `.env`. Or pass `tenant` / `store`
-on each `use_sdk` call. Precedence: tool arg > header > default membership.
-Empty header values are treated as unset.
+`ZIFTR_STORE` (UUID only) as environment variables for the MCP connection
+(in Claude Code: the project's `.claude/settings.json` `env` block; `.env`
+files are not auto-read). Or pass `tenant` / `store` on each `use_sdk`
+call. Precedence: tool arg > header > default membership. Empty header
+values are treated as unset.
 
 ## Tools you will use
 
@@ -48,7 +50,7 @@ Start by calling `get_setup_checklist` to anchor the steps to the live store.
 - Create initial products via `use_sdk` (`products.create`) when available
 - Explain product types (physical, digital), SKUs, pricing (minor units),
   descriptions
-- For bulk entry, hand off to the `/ziftr-ai:products` skill
+- For bulk entry, hand off to the `products` skill (`/ziftr-ai:products`)
 
 ### 3. Shipping (physical products)
 - Explain shipping zones, then create them via `use_sdk` when available
@@ -57,6 +59,8 @@ Start by calling `get_setup_checklist` to anchor the steps to the live store.
 - Explain tax options, then create rates via `use_sdk` when available
 
 ### 5. Storefront + next steps
-- Recommend scaffolding a storefront with `/ziftr-ai:scaffold`
-- Use `/ziftr-ai:launch-checklist` to verify readiness before going live
+- Recommend scaffolding a storefront with the `scaffold` skill
+  (`/ziftr-ai:scaffold`)
+- Use the `launch-checklist` skill (`/ziftr-ai:launch-checklist`) to verify
+  readiness before going live
 - Use `search_knowledge` (or docs.ziftr.ai) for deployment guides

@@ -1,0 +1,23 @@
+{
+  "name": "ziftr-ai",
+  "description": "AI-powered assistant for Ziftr e-commerce stores and apps. Search docs, configure stores, manage products, scaffold storefronts, and design apps/connectors.",
+  "version": "0.4.0",
+  "author": {
+    "name": "Ziftr",
+    "email": "support@ziftr.ai"
+  },
+  "homepage": "https://ziftr.ai",
+  "repository": "https://github.com/Ziftr/ziftr-claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "ecommerce",
+    "headless",
+    "sdk",
+    "store",
+    "products",
+    "commerce",
+    "api",
+    "apps",
+    "connectors"
+  ]
+}

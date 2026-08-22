@@ -10,8 +10,8 @@ through the checklist using the MCP `use_sdk` tool for live reads and
 
 ## Authentication
 
-The MCP server authenticates over OAuth on first use (run `/mcp` if not
-prompted).
+The MCP server authenticates over OAuth on first use; the agent client
+prompts in the browser (in Claude Code, run `/mcp` if not prompted).
 
 Call `whoami` first to confirm connection, scopes, and memberships. If
 `whoami` lists multiple memberships and there is no clear default, ask the
@@ -20,10 +20,11 @@ with no default fails closed with a candidate list (it does not silently
 pick the System tenant).
 
 Set a project default with `ZIFTR_TENANT` (UUID or slug) and optional
-`ZIFTR_STORE` (UUID only) in the project's `.claude/settings.json` `env`
-block -- Claude Code does not auto-read `.env`. Or pass `tenant` / `store`
-on each `use_sdk` call. Precedence: tool arg > header > default membership.
-Empty header values are treated as unset.
+`ZIFTR_STORE` (UUID only) as environment variables for the MCP connection
+(in Claude Code: the project's `.claude/settings.json` `env` block; `.env`
+files are not auto-read). Or pass `tenant` / `store` on each `use_sdk`
+call. Precedence: tool arg > header > default membership. Empty header
+values are treated as unset.
 
 ## Process
 
@@ -43,8 +44,8 @@ Empty header values are treated as unset.
    - For each failure, explain what is missing and offer to fix it.
 
 4. **Fix gaps**
-   - No products -> `/ziftr-ai:products` or `use_sdk products.create`
-     (pricing in minor units, e.g. $19.99 = 1999)
+   - No products -> the `products` skill (`/ziftr-ai:products`) or
+     `use_sdk products.create` (pricing in minor units, e.g. $19.99 = 1999)
    - No shipping -> guide zone setup, create via `use_sdk` when available
    - No taxes -> explain options, create rates via `use_sdk` when available
 

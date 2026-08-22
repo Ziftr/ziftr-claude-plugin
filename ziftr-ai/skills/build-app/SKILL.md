@@ -10,13 +10,16 @@ endpoints or MCP tools that are not on the live gateway surface.
 
 ## Authentication and tools
 
-- OAuth on first use (run `/mcp` if not prompted). Call `whoami` first to
-  confirm connection, scopes, and memberships. If multiple memberships and no
+- OAuth on first use; the agent client prompts in the browser (in Claude
+  Code, run `/mcp` if not prompted). Call `whoami` first to confirm
+  connection, scopes, and memberships. If multiple memberships and no
   clear default, ask the user which tenant to use before any `use_sdk` call.
   Multi-membership with no default fails closed with a candidate list.
-  Set `ZIFTR_TENANT` (UUID or slug) and optional `ZIFTR_STORE` (UUID only) in
-  the project's `.claude/settings.json` `env` block, or pass `tenant` /
-  `store` per call. Precedence: tool arg > header > default membership.
+  Set `ZIFTR_TENANT` (UUID or slug) and optional `ZIFTR_STORE` (UUID only)
+  as environment variables for the MCP connection (in Claude Code: the
+  project's `.claude/settings.json` `env` block; `.env` files are not
+  auto-read), or pass `tenant` / `store` per call. Precedence: tool arg >
+  header > default membership.
 - Use `search_knowledge` for docs and current guidance. If it is unavailable,
   fall back to https://docs.ziftr.ai.
 - Use `introspect_api` / `get_sdk_method` / `get_type_definition` when looking
@@ -86,8 +89,9 @@ Capability maturity: experimental | preview | generally-available |
 deprecated. Do not mark GA without conformance.
 
 For connector-specific rules (activity-only workers, ERP write surface),
-hand off to `/ziftr-ai:connector-dev`. For events, webhooks, and triggers,
-hand off to `/ziftr-ai:webhooks-events`.
+hand off to the `connector-dev` skill (`/ziftr-ai:connector-dev`). For
+events, webhooks, and triggers, hand off to the `webhooks-events` skill
+(`/ziftr-ai:webhooks-events`).
 
 ## Resumable install lifecycle
 
@@ -149,7 +153,8 @@ Produce, in the user's workspace:
 1. A draft manifest JSON (or outline) for their app
 2. The install session step plan and required merchant grants
 3. Permission list with least-privilege rationale
-4. Next skill: `/ziftr-ai:connector-dev` if they are building ERP sync, or
-   `/ziftr-ai:webhooks-events` for event intake
+4. Next skill: `connector-dev` (`/ziftr-ai:connector-dev`) if they are
+   building ERP sync, or `webhooks-events` (`/ziftr-ai:webhooks-events`)
+   for event intake
 
 Run `app-integration-reviewer` before they treat the design as ready.
